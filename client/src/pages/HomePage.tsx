@@ -9,7 +9,7 @@ const HomePage = () => {
                 <MainNavbar />
                 
                 {/* Hero Section - Imagen principal a pantalla completa con fade */}
-                <div className="relative w-full h-screen">
+                <div className="relative w-full h-[80vh]">
                     <img 
                         src={ImageHomePage}
                         alt="Asesoría legal" 
@@ -21,10 +21,10 @@ const HomePage = () => {
                     {/* Contenido opcional sobre la imagen con efecto parallax */}
                     <div className="absolute inset-0 flex items-center justify-center">
                         <div className="text-center text-white p-6">
-                            <Parallax translateY={[-20, 20]} speed={-10}>
+                            <Parallax translateY={[-60, 60]} speed={-15}>
                                 <h1 className="text-4xl md:text-5xl font-bold mb-4 drop-shadow-lg">Cárdenas Abogados & Asociados</h1>
                             </Parallax>
-                            <Parallax translateY={[-15, 15]} speed={-5}>
+                            <Parallax translateY={[-40, 40]} speed={-10}>
                                 <p className="text-xl md:text-2xl max-w-2xl mx-auto drop-shadow-lg">
                                     Expertos en soluciones legales a su servicio
                                 </p>
@@ -36,7 +36,7 @@ const HomePage = () => {
                 {/* Nuestros Servicios Section */}
                 <div className="w-full bg-white py-16">
                     <div className="max-w-6xl mx-auto px-4 text-center">
-                        <Parallax translateY={[20, -20]}>
+                        <Parallax translateY={[80, -80]}>
                             <h2 className="text-3xl font-bold mb-4">Nuestros Servicios</h2>
                             <p className="mb-8 max-w-2xl mx-auto">
                                 Asesoría legal especializada en derecho civil, corporativo, laboral y 
@@ -55,7 +55,7 @@ const HomePage = () => {
                     <div className="max-w-6xl mx-auto px-4">
                         <div className="flex flex-col md:flex-row gap-12">
                             <div className="w-full md:w-1/2">
-                                <Parallax translateY={[10, -10]}>
+                                <Parallax translateY={[60, -60]}>
                                     <h2 className="text-2xl font-bold mb-8">Quienes Somos</h2>
                                     
                                     <div className="mb-8">
@@ -86,7 +86,7 @@ const HomePage = () => {
                             </div>
                             
                             <div className="w-full md:w-1/2 flex items-center justify-center">
-                                <Parallax translateY={[15, -15]}>
+                                <Parallax translateY={[90, -30]}>
                                     <img 
                                         src="/images/office.jpg" 
                                         alt="Oficina moderna" 
@@ -101,7 +101,7 @@ const HomePage = () => {
                 {/* Consulta tu Trámite Section */}
                 <div className="w-full bg-white py-16">
                     <div className="max-w-6xl mx-auto px-4">
-                        <Parallax translateY={[20, -20]}>
+                        <Parallax translateY={[70, -70]}>
                             <h2 className="text-2xl font-bold mb-4">Consulta tu Trámite</h2>
                             <p className="mb-8 max-w-3xl">
                                 Acceda a nuestro sistema en línea para verificar el estado de sus trámites

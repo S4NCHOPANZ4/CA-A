@@ -2,13 +2,6 @@ import MainNavbar from "../components/MainNavbar"
 import { Parallax, ParallaxProvider } from 'react-scroll-parallax'
 import BalanzaImage from "../assets/images/hero.jpg" // Asegúrate de tener esta imagen
 
-
-
-
-
-
-
-
 const AboutUsPage = () => {
     return (
         <ParallaxProvider>
