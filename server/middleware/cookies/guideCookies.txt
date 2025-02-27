@@ -1,0 +1,6 @@
+
+ ├── cookies/
+ │   ├── setCookie.js       # Configuración de cookies
+ │   ├── getCookie.js       # Lectura de cookies
+ └── clearCookie.js     # Eliminación de cookies
+ └── auth.js                # Middleware de autenticación
