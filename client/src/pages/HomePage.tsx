@@ -6,18 +6,21 @@ import { useEffect, useState } from 'react'
 
 const HomePage = () => {
     // Estado para controlar la opacidad del gradiente
-    const [gradientOpacity, setGradientOpacity] = useState(0);
+    const [gradientOpacity, setGradientOpacity] = useState(.7);
 
     // Efecto para detectar el scroll y ajustar la opacidad del gradiente
     useEffect(() => {
         const handleScroll = () => {
             // Calcula la opacidad basada en cuánto ha scrolleado el usuario
-            // Dividimos por 300 para que el gradiente esté completamente visible después de scrollear 300px
+            // Comenzamos en 0.2 y aumentamos hasta 1 después de scrollear 200px
             const scrolled = window.scrollY;
-            const newOpacity = Math.min(scrolled / 300, 1);
+            const newOpacity = Math.min(.7 + (scrolled / 200), 1);
             setGradientOpacity(newOpacity);
         };
-
+    
+        // Ejecutar una vez al montar para establecer la opacidad inicial
+        handleScroll();
+        
         // Agregar el event listener
         window.addEventListener('scroll', handleScroll);
         
@@ -26,13 +29,12 @@ const HomePage = () => {
             window.removeEventListener('scroll', handleScroll);
         };
     }, []);
-
     return (
         <div className="bg-zinc-100 min-h-screen flex flex-col">
             <MainNavbar />
 
             {/* Hero Section - Imagen a pantalla completa con gradiente que aparece al scrollear */}
-            <div className="relative w-full h-screen"
+            <div className="relative w-full h-[80vh]"
                 style={{
                     backgroundImage: `url(${ImageHomePage})`,
                     backgroundSize: 'cover',
@@ -41,7 +43,7 @@ const HomePage = () => {
                 }}>
                 {/* Solo el overlay con gradiente que cambia de opacidad al scrollear */}
                 <div 
-                    className="absolute inset-0 bg-gradient-to-t from-zinc-800 to-transparent transition-opacity duration-300"
+                    className="absolute inset-0 bg-gradient-to-t from-zinc-900 to-transparent transition-opacity duration-300"
                     style={{ opacity: gradientOpacity }}
                 ></div>
 
@@ -120,8 +122,8 @@ const HomePage = () => {
                                 ></div>
                                 {/* Texto que aparece */}
                                 <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                                    <h3 className="text-white text-3xl font-bold opacity-0 transform translate-y-8 transition-all duration-600 group-hover:opacity-100 group-hover:translate-y-0 drop-shadow-lg">
-                                        Nosotros
+                                    <h3 className="font-medium text-white text-3xl font-bold opacity-0 transform translate-y-8 transition-all duration-600 group-hover:opacity-100 group-hover:translate-y-0 drop-shadow-lg">
+                                        Conocenos
                                     </h3>
                                 </div>
                             </div>
