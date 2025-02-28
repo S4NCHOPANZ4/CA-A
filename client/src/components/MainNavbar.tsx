@@ -1,8 +1,11 @@
 import { useState, useEffect } from "react";
 import { IoLogoGithub, IoMdClose } from "react-icons/io";
 import { MdOutlineMenu } from "react-icons/md";
+import { useNavigate } from "react-router-dom";
 
 const MainNavbar = () => {
+
+  const navigate = useNavigate();
   const [isVisible, setIsVisible] = useState(true);
   const [isOpen, setIsOpen] = useState(false)
   let lastScrollY = 0;
@@ -30,10 +33,18 @@ const MainNavbar = () => {
         <IoLogoGithub />
       </div>
       <div className="hidden h-full md:flex font-semibold items-center space-x-4 [&>p]:h-[80%] [&>p]:flex [&>p]:items-center [&>p]:hover:bg-zinc-100 [&>p]:px-[1rem] [&>p]:rounded-md [&>p]:cursor-pointer">
-        <p className="transition-transform duration-100 ease-in-out hover:scale-102">Inicio</p>
-        <p className="cursor-pointer transition-transform duration-100 ease-in-out hover:scale-102">Servicios</p>
-        <p className="cursor-pointer transition-transform duration-100 ease-in-out hover:scale-102">Nosotros</p>
-        <button className="bg-black px-3 py-2 text-white rounded-md cursor-pointer transition-transform duration-200 ease-in-out hover:scale-105">Consultar</button>
+        <p onClick={()=>navigate('/contact')} className="transition-transform duration-100 ease-in-out hover:scale-102">
+          Contactanos
+        </p>
+        <p onClick={()=>navigate('/')}  className="cursor-pointer transition-transform duration-100 ease-in-out hover:scale-102">
+          Servicios
+        </p>
+        <p onClick={()=>navigate('/aboutUs')}  className="cursor-pointer transition-transform duration-100 ease-in-out hover:scale-102">
+          Nosotros
+        </p>
+        <button onClick={()=>navigate('/')}  className="bg-black px-3 py-2 text-white rounded-md cursor-pointer transition-transform duration-200 ease-in-out hover:scale-105">
+          Consultar
+        </button>
       </div>
       <div className="md:hidden flex items-center justify-center h-[100%] aspect-square  rounded-md relative transition-all duration-200 ease-in-out cursor-pointer">
         <button onClick={() => setIsOpen(!isOpen)} className="text-2xl w-full h-full">

@@ -3,28 +3,22 @@ import ImageHomePage from "../assets/images/hero.jpg"
 import ImageAboutUs from "../assets/images/oficina.png"
 import ImageConsulta from "../assets/images/consulta.jpg"
 import { useEffect, useState } from 'react'
+import { useNavigate } from "react-router-dom";
 
 const HomePage = () => {
-    // Estado para controlar la opacidad del gradiente
+
+    const navigate = useNavigate();
+
     const [gradientOpacity, setGradientOpacity] = useState(.7);
 
-    // Efecto para detectar el scroll y ajustar la opacidad del gradiente
     useEffect(() => {
         const handleScroll = () => {
-            // Calcula la opacidad basada en cuánto ha scrolleado el usuario
-            // Comenzamos en 0.2 y aumentamos hasta 1 después de scrollear 200px
             const scrolled = window.scrollY;
             const newOpacity = Math.min(.7 + (scrolled / 200), 1);
             setGradientOpacity(newOpacity);
         };
-    
-        // Ejecutar una vez al montar para establecer la opacidad inicial
         handleScroll();
-        
-        // Agregar el event listener
         window.addEventListener('scroll', handleScroll);
-        
-        // Limpiar el event listener cuando el componente se desmonte
         return () => {
             window.removeEventListener('scroll', handleScroll);
         };
